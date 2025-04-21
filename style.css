@@ -16,9 +16,11 @@ body {
     border: 1px solid #ccc;
     padding: 12px;
     text-align: center;
+    
   }
   th {
-    background: #eee;
+    background-color: #007BFF;
+    color: white;
   }
   select {
     padding: 5px;
@@ -73,3 +75,34 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+
+
+
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    direction: rtl;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

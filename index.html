@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
     <title>جدول عمليات قوائم الانتظار</title>
 </head>
 <body>
@@ -53,7 +55,7 @@
           <td>د/ أحمد علي</td>
           <td>د/ إبراهيم ولاش</td>
           <td>٧ ممرضين (٢ تعقيم، ٢ تسجيل، ٢ مناولة، ١ تخدير)</td>
-          <td>٩ ص</td>
+          <td>9:00 صباحًا</td>
         </tr>
         <tr>
           <td>قسطرة القلب</td>
@@ -64,9 +66,9 @@
                 <div>د/ إبراهيم ولاش</div>
             </div>
            </td> -->
-           <td></td>
+           <td>لا يوجد</td>
           <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
-          <td>٩ ص</td>
+          <td>9:00 صباحًا</td>
         </tr>
         <tr>
             <td>مخ وأعصاب</td>
@@ -78,7 +80,7 @@
                 </div>
                </td>
           <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
-          <td>٣ عصراً</td>
+          <td>3:00 عصرا</td>
         </tr>
     
         <!-- يوم الجمعة: 3 أقسام -->
@@ -87,14 +89,14 @@
           <td>عظام</td>
           <td>د/ بسام </td>
           <td rowspan="2">د/ محمد طارق</tdق>
-          <td>٧ ممرضين</td>
-          <td>٩ ص</td>
+            <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+            <td>9:00 صباحًا</td>
         </tr>
         <tr>
           <td>قلب مفتوح</td>
           <td>د/ أحمد سلامة</td>
-          <td>٣ ممرضين</td>
-          <td>١٠ ص</td>
+          <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+          <td>10:00 صباحًا</td>
         </tr>
     
         <!-- السبت -->
@@ -103,8 +105,8 @@
           <td>مخ وأعصاب</td>
           <td>د/ محمد عبدالباسط</td>
           <td>دعاء حافظ </td>
-          <td>٣ ممرضين</td>
-          <td>١ ظهراً</td>
+          <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+          <td>1:00 ظهرا</td>
         </tr>
         <!-- <tr>
           <td>أورام</td>
@@ -133,7 +135,7 @@
             </div>
            </td>
           <td>٢ ممرضين</td>
-          <td>٩ ص</td>
+          <td>9:00 صباحًا</td>
         </tr>
     
         <!-- الإثنين -->
@@ -147,16 +149,16 @@
                 <div>د/ إبراهيم ولاش</div>
             </div>
            </td>         
-            <td>٣ ممرضين</td>
-          <td>٩ ص</td>
+           <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+           <td>9:00 صباحًا</td>
         </tr>
         <tr>
           <td>قسطرة القلب</td>
           <td>د/ حماده غانم</td>
-          <td></td>
+          <td>لا يوجد</td>
           <!-- <td>د/ مصطفى مهني، إبراهيم ولاش</td> -->
-          <td>٣ ممرضين</td>
-          <td>٩ ص</td>
+          <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+          <td>9:00 صباحًا</td>
         </tr>
     
         <!-- الثلاثاء -->
@@ -171,31 +173,14 @@
             </div>
            </td>          
            <td>٢ ممرضين</td>
-          <td>٩ ص</td>
+          <td>9:00 صباحًا</td>
         </tr>
       </tbody>
     </table>
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-      <h2>جدول ديناميكي لعمليات الأورام والعظام</h2>
+      <!-- <h2>جدول ديناميكي لعمليات الأورام والعظام</h2>
     
       <table>
         <thead>
@@ -251,7 +236,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     
 
     
@@ -272,67 +257,66 @@
 
 
 
+      
+        <!-- <h2>جدول العمليات المتغيرة الأورام والعظام</h2>
+      
+        <table>
+          <thead>
+            <tr>
+                <th>اليوم</th>
+              <th>القسم</th>
+              <th>الطبيب</th>
+              <th>التخدير</th>
+              <th>التمريض</th>
+              <th> التوقيت</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+          </tbody>
+        </table>
+        <div id="dataView">تحميل البيانات...</div> -->
 
 
-  <!-- <h2>جدول العمليات - أورام وعظام</h2>
-  <table id="schedule-table">
-    <thead>
-      <tr>
-        <th>القسم</th>
-        <th>اسم الطبيب</th>
-        <th>اليوم</th>
-        <th>طبيب التخدير</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>الأورام</td>
-        <td><input id="doctor-oram" placeholder="د. أحمد صبري / د. كريم شادي" /></td>
-        <td>
-          <select id="day-oram">
-            <option value="">اختر اليوم</option>
-            <option>السبت</option>
-            <option>الأحد</option>
-            <option>الاثنين</option>
-            <option>الثلاثاء</option>
-            <option>الأربعاء</option>
-            <option>الخميس</option>
-            <option>الجمعة</option>
-          </select>
-        </td>
-        <td><input id="anesthesia-oram" placeholder="يُحدد حسب الطبيب" /></td>
-      </tr>
-      <tr>
-        <td>العظام</td>
-        <td><input id="doctor-3zam" placeholder="د. أحمد عبيد" /></td>
-        <td>
-          <select id="day-3zam">
-            <option value="">اختر اليوم</option>
-            <option>السبت</option>
-            <option>الأحد</option>
-            <option>الاثنين</option>
-            <option>الثلاثاء</option>
-            <option>الأربعاء</option>
-            <option>الخميس</option>
-            <option>الجمعة</option>
-          </select>
-        </td>
-        <td><input id="anesthesia-3zam" placeholder="طبيب التخدير" /></td>
-      </tr>
-    </tbody>
-  </table>  -->
-      <!-- زر الحفظ -->
-      <div class="center">   <button onclick="saveChanges()">حفظ التغييرات</button></div>
+
+
+
+
+        <h2>جدول العمليات المتغيرة الأورام والعظام</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>اليوم</th>
+      <th>القسم</th>
+      <th>الطبيب</th>
+      <th>التخدير</th>
+      <th>التمريض</th>
+      <th>التوقيت</th>
+    </tr>
+  </thead>
+  <tbody id="table-body">
+    <!-- هتتحط الصفوف من JavaScript -->
+  </tbody>
+</table>
+
+<div id="dataView">تحميل البيانات...</div>
+
+
+
+
+
+
+
+
+
+      <!-- <div class="center">   <button onclick="saveChanges()">حفظ التغييرات</button></div> -->
 
  
 
 
-
-
-
-
-
-
+      
+      
+    
 
 
 
@@ -351,92 +335,274 @@
 
 
     <script>
-function saveChanges() {
-    const orDay = document.getElementById('or-day').value;
-    const bonesDay = document.getElementById('bones-day').value;
-    const orAnesthesia = document.getElementById('or-anesthesia').value;
-    const bonesAnesthesia = document.getElementById('bones-anesthesia').value;
+// function saveChanges() {
+//     const orDay = document.getElementById('or-day').value;
+//     const bonesDay = document.getElementById('bones-day').value;
+//     const orAnesthesia = document.getElementById('or-anesthesia').value;
+//     const bonesAnesthesia = document.getElementById('bones-anesthesia').value;
 
-    localStorage.setItem('or_day', orDay);
-    localStorage.setItem('bones_day', bonesDay);
-    localStorage.setItem('or_anesthesia', orAnesthesia);
-    localStorage.setItem('bones_anesthesia', bonesAnesthesia);
+//     localStorage.setItem('or_day', orDay);
+//     localStorage.setItem('bones_day', bonesDay);
+//     localStorage.setItem('or_anesthesia', orAnesthesia);
+//     localStorage.setItem('bones_anesthesia', bonesAnesthesia);
 
-    alert("تم حفظ التغييرات بنجاح!");
+//     alert("تم حفظ التغييرات بنجاح!");
+//   }
+
+//   function loadData() {
+//     const orDay = localStorage.getItem('or_day');
+//     const bonesDay = localStorage.getItem('bones_day');
+//     const orAnesthesia = localStorage.getItem('or_anesthesia');
+//     const bonesAnesthesia = localStorage.getItem('bones_anesthesia');
+
+//     if (orDay) document.getElementById('or-day').value = orDay;
+//     if (bonesDay) document.getElementById('bones-day').value = bonesDay;
+//     if (orAnesthesia) document.getElementById('or-anesthesia').value = orAnesthesia;
+//     if (bonesAnesthesia) document.getElementById('bones-anesthesia').value = bonesAnesthesia;
+//   }
+
+//   window.onload = loadData;
+
+
+
+
+
+
+
+
+
+
+
+//    // Firebase Configuration
+//    const firebaseConfig = {
+//   apiKey: "AIzaSyDbwLf-RTecCnxflnDax2UmIS1LbamrwGE",
+//   authDomain: "hospital-56bd2.firebaseapp.com",
+//   databaseURL: "https://hospital-56bd2-default-rtdb.firebaseio.com",
+//   projectId: "hospital-56bd2",
+//   storageBucket: "hospital-56bd2.firebasestorage.app",
+//   messagingSenderId: "629610904536",
+//   appId: "1:629610904536:web:18a0806187fb70fee0d0ad",
+//   measurementId: "G-6XMQLDMPQ9"
+// };
+
+// //   // Initialize Firebase
+// //   firebase.initializeApp(firebaseConfig);
+
+// //   // Save Data Function
+// //   function saveData() {
+// //     const data = {
+// //       oram: {
+// //         doctor: document.getElementById('doctor-oram').value,
+// //         day: document.getElementById('day-oram').value,
+// //         anesthesia: document.getElementById('anesthesia-oram').value,
+// //       },
+// //       azam: {
+// //         doctor: document.getElementById('doctor-3zam').value,
+// //         day: document.getElementById('day-3zam').value,
+// //         anesthesia: document.getElementById('anesthesia-3zam').value,
+// //       }
+// //     };
+
+// //     firebase.database().ref('dynamicSchedule').set(data)
+// //       .then(() => alert('تم الحفظ بنجاح'))
+// //       .catch(err => alert('خطأ: ' + err));
+// //   }
+
+// //   // Load Data Live
+// //   firebase.database().ref('dynamicSchedule').on('value', (snapshot) => {
+// //     const data = snapshot.val();
+// //     if (data) {
+// //       document.getElementById('doctor-oram').value = data.oram?.doctor || '';
+// //       document.getElementById('day-oram').value = data.oram?.day || '';
+// //       document.getElementById('anesthesia-oram').value = data.oram?.anesthesia || '';
+
+// //       document.getElementById('doctor-3zam').value = data.azam?.doctor || '';
+// //       document.getElementById('day-3zam').value = data.azam?.day || '';
+// //       document.getElementById('anesthesia-3zam').value = data.azam?.anesthesia || '';
+// //     }
+// //   });
+
+
+
+
+
+
+
+
+
+
+//  // بيانات الربط مع Firebase
+//                 // ربط المشروع
+//           firebase.initializeApp(firebaseConfig);
+//           const db = firebase.database();
+      
+//           // تحميل البيانات من Firebase
+//           const tableBody = document.getElementById("table-body");
+      
+//           function loadTable() {
+//             db.ref("dynamicTable").on("value", (snapshot) => {
+//               const data = snapshot.val();
+//               tableBody.innerHTML = ""; // مسح القديم
+      
+//               for (const section in data) {
+//                 const row = document.createElement("tr");
+      
+//                 row.innerHTML = `
+//                   <td>${section}</td>
+//                   <td>${data[section].doctor}</td>
+//                   <td>${data[section].day || '—'}</td>
+//                   <td>${data[section].anesthesia || '—'}</td>
+//                 `;
+      
+//                 tableBody.appendChild(row);
+//               }
+//             });
+//           }
+      
+//           loadTable();
+
+
+
+
+
+
+
+
+// const binId = "680697538960c979a58a1c64"; // ضع معرف الـ bin هنا
+//     const apiKey = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6"; // ضع مفتاح الـ API هنا
+
+//           fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+//             headers: {
+//               "X-Master-Key": apiKey
+//             }
+//           })
+//           .then(res => res.json())
+//           .then(json => {
+//             const data = json.record;
+//             document.getElementById("dataView").innerHTML = `
+//               <p>👨‍⚕️ التمريض: ${data.doctor}</p>
+//               <p>📅 اليوم: ${data.day}</p>
+//               <p>💉 التخدير: ${data.anesthesia}</p>
+//             `;
+//           })
+//           .catch(err => {
+//             document.getElementById("dataView").innerText = "فشل تحميل البيانات ⚠️";
+//           });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   const binId = "680697538960c979a58a1c64"; // ضع معرف الـ bin هنا
+//   const apiKey = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6"; // ضع مفتاح الـ API هنا
+
+//   fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+//     headers: {
+//       "X-Master-Key": apiKey
+//     }
+//   })
+//   .then(res => res.json())
+//   .then(json => {
+//     const records = json.record; // لازم يكون Array
+//     const tableBody = document.getElementById("table-body");
+//     tableBody.innerHTML = ""; // نفضي الجدول الأول
+
+//     records.forEach(record => {
+//       const row = `
+//         <tr>
+//           <td>${record.day}</td>
+//           <td>${record.department}</td>
+//           <td>${record.doctor}</td>
+//           <td>${record.anesthesia}</td>
+//           <td>${record.nursing}</td>
+//           <td>${record.time}</td>
+//         </tr>
+//       `;
+//       tableBody.innerHTML += row;
+//     });
+
+//     document.getElementById("dataView").style.display = "none"; // نخفي رسالة التحميل
+//   })
+//   .catch(err => {
+//     document.getElementById("dataView").innerText = "⚠️ فشل تحميل البيانات";
+//   });
+
+
+
+
+
+
+
+
+
+
+
+const binId = "680697538960c979a58a1c64"; // ضع معرف الـ bin هنا
+const apiKey = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6"; // ضع مفتاح الـ API هنا
+
+const fixedData = [
+  {
+    department: "العظام",
+    doctor: "د. أحمد عبيد",
+    time: "9:00 صباحًا"
+  },
+  {
+    department: "الأورام",
+    doctor: "د. احمد صبري | د. كريم شادي",
+    time: "3:00 عصرا"
   }
+];
 
-  function loadData() {
-    const orDay = localStorage.getItem('or_day');
-    const bonesDay = localStorage.getItem('bones_day');
-    const orAnesthesia = localStorage.getItem('or_anesthesia');
-    const bonesAnesthesia = localStorage.getItem('bones_anesthesia');
-
-    if (orDay) document.getElementById('or-day').value = orDay;
-    if (bonesDay) document.getElementById('bones-day').value = bonesDay;
-    if (orAnesthesia) document.getElementById('or-anesthesia').value = orAnesthesia;
-    if (bonesAnesthesia) document.getElementById('bones-anesthesia').value = bonesAnesthesia;
+fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+  headers: {
+    "X-Master-Key": apiKey
   }
+})
+.then(res => res.json())
+.then(json => {
+  const dynamicData = json.record;
+  const tableBody = document.getElementById("table-body");
+  tableBody.innerHTML = "";
 
-  window.onload = loadData;
-
-
-
-
-
-
-
-
-
-
-
-   // Firebase Configuration
-   const firebaseConfig = {
-    apiKey: "AIzaSyA9TSettE09gSjj-tQ9ODEn5hDoQhLTldo",
-    authDomain: "hospital-operations.firebaseapp.com",
-    databaseURL: "https://hospital-operations-default-rtdp.firebaseio.com/",
-    projectId: "hospital-operations",
-    storageBucket: "hospital-operations.firebasestorage.app",
-    messagingSenderId: "1003511769993",
-    appId: "1:1003511769993:web:c039f96b8f4a5586830f58",
-};
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  // Save Data Function
-  function saveData() {
-    const data = {
-      oram: {
-        doctor: document.getElementById('doctor-oram').value,
-        day: document.getElementById('day-oram').value,
-        anesthesia: document.getElementById('anesthesia-oram').value,
-      },
-      azam: {
-        doctor: document.getElementById('doctor-3zam').value,
-        day: document.getElementById('day-3zam').value,
-        anesthesia: document.getElementById('anesthesia-3zam').value,
-      }
-    };
-
-    firebase.database().ref('dynamicSchedule').set(data)
-      .then(() => alert('تم الحفظ بنجاح'))
-      .catch(err => alert('خطأ: ' + err));
-  }
-
-  // Load Data Live
-  firebase.database().ref('dynamicSchedule').on('value', (snapshot) => {
-    const data = snapshot.val();
-    if (data) {
-      document.getElementById('doctor-oram').value = data.oram?.doctor || '';
-      document.getElementById('day-oram').value = data.oram?.day || '';
-      document.getElementById('anesthesia-oram').value = data.oram?.anesthesia || '';
-
-      document.getElementById('doctor-3zam').value = data.azam?.doctor || '';
-      document.getElementById('day-3zam').value = data.azam?.day || '';
-      document.getElementById('anesthesia-3zam').value = data.azam?.anesthesia || '';
-    }
+  fixedData.forEach((fixedRow, index) => {
+    const dynamicRow = dynamicData[index] || {};
+    const row = `
+      <tr>
+        <td>${dynamicRow.day || ""}</td>
+        <td>${fixedRow.department}</td>
+        <td>${fixedRow.doctor}</td>
+        <td>${dynamicRow.anesthesia || ""}</td>
+        <td>${dynamicRow.nursing || ""}</td>
+        <td>${fixedRow.time}</td>
+      </tr>
+    `;
+    tableBody.innerHTML += row;
   });
+
+  document.getElementById("dataView").style.display = "none";
+})
+.catch(err => {
+  document.getElementById("dataView").innerText = "⚠️ فشل تحميل البيانات";
+});
+
+
+
+
+
+
+
     </script>
 </body>
 </html>

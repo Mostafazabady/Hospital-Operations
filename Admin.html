@@ -1,0 +1,150 @@
+<!-- <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>صفحة الأدمن</title>
+  
+</head>
+<body>
+  <h2>صفحة الأدمن - تعديل البيانات</h2>
+  <input type="text" id="day" placeholder="اليوم" />
+  <input type="text" id="anesthesia" placeholder="التخدير" />
+  <input type="text" id="nursing" placeholder="التمريض" />
+  <button onclick="updateBin()">💾 حفظ</button>
+
+  <script>
+   const binId = "680697538960c979a58a1c64"; // ضع معرف الـ bin هنا
+    const apiKey = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6"; // ضع مفتاح الـ API هنا
+
+
+    function updateBin() {
+      const data = {
+        doctor: document.getElementById("nursing").value,
+        day: document.getElementById("day").value,
+        anesthesia: document.getElementById("anesthesia").value
+      };
+
+      fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": apiKey
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(() => alert("تم حفظ التعديلات بنجاح ✅"))
+      .catch(err => alert("حدث خطأ ⚠️"));
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة تحكم الأدمن</title>
+  <style>
+    body { font-family: Arial; text-align: center; direction: rtl; background-color: #f7f7f7; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; }
+    input {
+      width: 90%;
+      padding: 8px;
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #message {
+      margin-top: 15px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>لوحة تعديل جدول العمليات المتغيرة </h2>
+
+  <form id="admin-form">
+    <table>
+      <thead>
+        <tr>
+          <th>اليوم</th>
+          <th>القسم</th>
+          <th>الطبيب</th>
+          <th>التخدير</th>
+          <th>التمريض</th>
+          <th>التوقيت</th>
+        </tr>
+      </thead>
+      <tbody id="form-body">
+        <!-- يتم إدخال الصفوف هنا تلقائيًا -->
+      </tbody>
+    </table>
+
+    <button type="submit">💾 حفظ التعديلات</button>
+  </form>
+
+  <div id="message"></div>
+
+  <script src="admin.js"></script>
+</body>
+
