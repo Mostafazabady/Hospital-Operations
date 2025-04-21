@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800&family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Amatic+SC:wght@400;700&family=Cairo:wght@500&family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=La+Belle+Aurore&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <title>جدول عمليات قوائم الانتظار</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+
+ 
+    
+    
+   
+    <h2>جدول العمليات الثابتة اسبوعيا</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>اليوم</th>
+          <th>القسم</th>
+          <th>الطبيب</th>
+          <th>التخدير</th>
+          <th>التمريض</th>
+          <th>التوقيت</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- يوم الخميس: 3 أقسام -->
+        <tr>
+          <td rowspan="3">الخميس</td>
+          <td>رمد</td>
+          <td>د/ أحمد علي</td>
+          <td>د/ إبراهيم ولاش</td>
+          <td>٧ ممرضين (٢ تعقيم، ٢ تسجيل، ٢ مناولة، ١ تخدير)</td>
+          <td>٩ ص</td>
+        </tr>
+        <tr>
+          <td>قسطرة القلب</td>
+          <td>د/ حماده غانم</td>
+           <!-- <td>
+            <div class="half">
+                <div class="top">د/ مصطفى مهني</div>
+                <div>د/ إبراهيم ولاش</div>
+            </div>
+           </td> -->
+           <td></td>
+          <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+          <td>٩ ص</td>
+        </tr>
+        <tr>
+            <td>مخ وأعصاب</td>
+            <td>د/ سعيد الإمام</td>
+            <td>
+                <div class="half">
+                    <div class="top">د/ مصطفى مهني</div>
+                    <div>د/ إبراهيم ولاش</div>
+                </div>
+               </td>
+          <td>٣ ممرضين (١ تخدير، ١ جراحة، ١ مناولة)</td>
+          <td>٣ عصراً</td>
+        </tr>
+    
+        <!-- يوم الجمعة: 3 أقسام -->
+        <tr>
+          <td rowspan="2">الجمعة</td>
+          <td>عظام</td>
+          <td>د/ بسام </td>
+          <td rowspan="2">د/ محمد طارق</tdق>
+          <td>٧ ممرضين</td>
+          <td>٩ ص</td>
+        </tr>
+        <tr>
+          <td>قلب مفتوح</td>
+          <td>د/ أحمد سلامة</td>
+          <td>٣ ممرضين</td>
+          <td>١٠ ص</td>
+        </tr>
+    
+        <!-- السبت -->
+        <tr>
+          <td>السبت</td>
+          <td>مخ وأعصاب</td>
+          <td>د/ محمد عبدالباسط</td>
+          <td>دعاء حافظ </td>
+          <td>٣ ممرضين</td>
+          <td>١ ظهراً</td>
+        </tr>
+        <!-- <tr>
+          <td>أورام</td>
+          <td>الدكتور أحمد صبري</td>
+          <td>
+            <select>
+              <option>غير محدد</option>
+              <option>إبراهيم ولاش</option>
+              <option>مصطفى مهني</option>
+            </select>
+          </td>
+          <td>٣ ممرضين</td>
+          <td>٣ عصراً</td>
+        </tr> -->
+    
+        <!-- الأحد -->
+        <tr>
+          <td>الأحد</td>
+          <td>أنف وأذن</td>
+          <td>د/ سيد عبدالحميد</td>
+          <!-- <td>دعاء حافظ، مصطفى مهني</td> -->
+          <td>
+            <div class="half">
+                <div class="top">د/  دعاء حافظ </div>
+                <div>د/  مصطفي مهني</div>
+            </div>
+           </td>
+          <td>٢ ممرضين</td>
+          <td>٩ ص</td>
+        </tr>
+    
+        <!-- الإثنين -->
+        <tr>
+          <td rowspan="2">الإثنين</td>
+          <td>مخ وأعصاب</td>
+          <td>د/ سعيد الإمام</td>
+          <td>
+            <div class="half">
+                <div class="top">د/ مصطفى مهني</div>
+                <div>د/ إبراهيم ولاش</div>
+            </div>
+           </td>         
+            <td>٣ ممرضين</td>
+          <td>٩ ص</td>
+        </tr>
+        <tr>
+          <td>قسطرة القلب</td>
+          <td>د/ حماده غانم</td>
+          <td></td>
+          <!-- <td>د/ مصطفى مهني، إبراهيم ولاش</td> -->
+          <td>٣ ممرضين</td>
+          <td>٩ ص</td>
+        </tr>
+    
+        <!-- الثلاثاء -->
+        <tr>
+          <td>الثلاثاء</td>
+          <td>أنف وأذن</td>
+          <td>د/ سيد عبدالحميد</td>
+          <td>
+            <div class="half">
+                <div class="top">د/  دعاء حافظ </div>
+                <div>د/  مصطفي مهني</div>
+            </div>
+           </td>          
+           <td>٢ ممرضين</td>
+          <td>٩ ص</td>
+        </tr>
+      </tbody>
+    </table>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <h2>جدول ديناميكي لعمليات الأورام والعظام</h2>
+    
+      <table>
+        <thead>
+          <tr>
+            <th>القسم</th>
+            <th>اسم الدكتور</th>
+            <th>اليوم</th>
+            <th>طبيب التخدير</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الأورام</td>
+           <td>
+                <div class="half">
+                    <div class="top">د/  أحمد صبري </div>
+                    <div>د/  كريم شادي</div>
+                </div>
+               </td>    
+            <td>
+              <select id="or-day">
+                <option value="">-- اختر اليوم --</option>
+                <option value="السبت">السبت</option>
+                <option value="الأحد">الأحد</option>
+                <option value="الاثنين">الاثنين</option>
+                <option value="الثلاثاء">الثلاثاء</option>
+                <option value="الأربعاء">الأربعاء</option>
+                <option value="الخميس">الخميس</option>
+                <option value="الجمعة">الجمعة</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" id="or-anesthesia" placeholder="اكتب اسم دكتور التخدير">
+            </td>
+          </tr>
+          <tr>
+            <td>العظام</td>
+            <td>د/ أحمد عبيد</td>
+            <td>
+              <select id="bones-day">
+                <option value="">-- اختر اليوم --</option>
+                <option value="السبت">السبت</option>
+                <option value="الأحد">الأحد</option>
+                <option value="الاثنين">الاثنين</option>
+                <option value="الثلاثاء">الثلاثاء</option>
+                <option value="الأربعاء">الأربعاء</option>
+                <option value="الخميس">الخميس</option>
+                <option value="الجمعة">الجمعة</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" id="bones-anesthesia" placeholder="اكتب اسم دكتور التخدير">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <h2>جدول العمليات - أورام وعظام</h2>
+  <table id="schedule-table">
+    <thead>
+      <tr>
+        <th>القسم</th>
+        <th>اسم الطبيب</th>
+        <th>اليوم</th>
+        <th>طبيب التخدير</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>الأورام</td>
+        <td><input id="doctor-oram" placeholder="د. أحمد صبري / د. كريم شادي" /></td>
+        <td>
+          <select id="day-oram">
+            <option value="">اختر اليوم</option>
+            <option>السبت</option>
+            <option>الأحد</option>
+            <option>الاثنين</option>
+            <option>الثلاثاء</option>
+            <option>الأربعاء</option>
+            <option>الخميس</option>
+            <option>الجمعة</option>
+          </select>
+        </td>
+        <td><input id="anesthesia-oram" placeholder="يُحدد حسب الطبيب" /></td>
+      </tr>
+      <tr>
+        <td>العظام</td>
+        <td><input id="doctor-3zam" placeholder="د. أحمد عبيد" /></td>
+        <td>
+          <select id="day-3zam">
+            <option value="">اختر اليوم</option>
+            <option>السبت</option>
+            <option>الأحد</option>
+            <option>الاثنين</option>
+            <option>الثلاثاء</option>
+            <option>الأربعاء</option>
+            <option>الخميس</option>
+            <option>الجمعة</option>
+          </select>
+        </td>
+        <td><input id="anesthesia-3zam" placeholder="طبيب التخدير" /></td>
+      </tr>
+    </tbody>
+  </table>  -->
+      <!-- زر الحفظ -->
+      <div class="center">   <button onclick="saveChanges()">حفظ التغييرات</button></div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+function saveChanges() {
+    const orDay = document.getElementById('or-day').value;
+    const bonesDay = document.getElementById('bones-day').value;
+    const orAnesthesia = document.getElementById('or-anesthesia').value;
+    const bonesAnesthesia = document.getElementById('bones-anesthesia').value;
+
+    localStorage.setItem('or_day', orDay);
+    localStorage.setItem('bones_day', bonesDay);
+    localStorage.setItem('or_anesthesia', orAnesthesia);
+    localStorage.setItem('bones_anesthesia', bonesAnesthesia);
+
+    alert("تم حفظ التغييرات بنجاح!");
+  }
+
+  function loadData() {
+    const orDay = localStorage.getItem('or_day');
+    const bonesDay = localStorage.getItem('bones_day');
+    const orAnesthesia = localStorage.getItem('or_anesthesia');
+    const bonesAnesthesia = localStorage.getItem('bones_anesthesia');
+
+    if (orDay) document.getElementById('or-day').value = orDay;
+    if (bonesDay) document.getElementById('bones-day').value = bonesDay;
+    if (orAnesthesia) document.getElementById('or-anesthesia').value = orAnesthesia;
+    if (bonesAnesthesia) document.getElementById('bones-anesthesia').value = bonesAnesthesia;
+  }
+
+  window.onload = loadData;
+
+
+
+
+
+
+
+
+
+
+
+   // Firebase Configuration
+   const firebaseConfig = {
+    apiKey: "AIzaSyA9TSettE09gSjj-tQ9ODEn5hDoQhLTldo",
+    authDomain: "hospital-operations.firebaseapp.com",
+    databaseURL: "https://hospital-operations-default-rtdp.firebaseio.com/",
+    projectId: "hospital-operations",
+    storageBucket: "hospital-operations.firebasestorage.app",
+    messagingSenderId: "1003511769993",
+    appId: "1:1003511769993:web:c039f96b8f4a5586830f58",
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  // Save Data Function
+  function saveData() {
+    const data = {
+      oram: {
+        doctor: document.getElementById('doctor-oram').value,
+        day: document.getElementById('day-oram').value,
+        anesthesia: document.getElementById('anesthesia-oram').value,
+      },
+      azam: {
+        doctor: document.getElementById('doctor-3zam').value,
+        day: document.getElementById('day-3zam').value,
+        anesthesia: document.getElementById('anesthesia-3zam').value,
+      }
+    };
+
+    firebase.database().ref('dynamicSchedule').set(data)
+      .then(() => alert('تم الحفظ بنجاح'))
+      .catch(err => alert('خطأ: ' + err));
+  }
+
+  // Load Data Live
+  firebase.database().ref('dynamicSchedule').on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      document.getElementById('doctor-oram').value = data.oram?.doctor || '';
+      document.getElementById('day-oram').value = data.oram?.day || '';
+      document.getElementById('anesthesia-oram').value = data.oram?.anesthesia || '';
+
+      document.getElementById('doctor-3zam').value = data.azam?.doctor || '';
+      document.getElementById('day-3zam').value = data.azam?.day || '';
+      document.getElementById('anesthesia-3zam').value = data.azam?.anesthesia || '';
+    }
+  });
+    </script>
+</body>
+</html>

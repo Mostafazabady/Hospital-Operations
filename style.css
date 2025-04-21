@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    padding: 20px;
+    background: #f8f8f8;
+  }
+  h2{
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+  }
+  th {
+    background: #eee;
+  }
+  select {
+    padding: 5px;
+    width: 100%;
+  }
+
+
+
+
+
+  .half {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .half div {
+    flex: 1;
+    padding: 5px;
+  }
+
+  .half .top {
+    border-bottom: 1px solid #c1c1c1;
+  }
+
+
+
+
+
+
+
+  table .two {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+   input {
+    padding: 5px;
+    width: 90%;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
