@@ -104,10 +104,82 @@ body {
   h2 {
     text-align: center;
     margin-top: 20px;
-  }
+    font-size: 33px;
+    color: darkcyan;
+    font-family: system-ui;
+    font-weight: 700;
+}
+  h3 {
+    padding-top: 78px;
+    margin-bottom: 0;
+    font-size: 33px;
+    color: dimgrey;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+  .department {
+    margin-bottom: 30px;
+  }
+  
+  .department h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #444;
+  }
+  
+  .department h2 button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .patient-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .patient-row input,
+  .patient-row select {
+    flex: 1;
+    padding: 5px;
+  }
+  
+  #save-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #message {
+    text-align: center;
+    margin-top: 10px;
+    color: green;
+  }
 
 
 

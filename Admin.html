@@ -2,7 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>لوحة تحكم الأدمن</title>
+  
   <style>
     body { font-family: Arial; text-align: center; direction: rtl; background-color: #f7f7f7; }
     table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -74,6 +76,315 @@
 
 
 <!-- =============================================================================================================== -->
+
+
+
+
+
+
+
+
+
+
+<br>
+<hr>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>صفحة الأدمن - إدارة المرضى</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f3f6fa;
+      padding: 2rem;
+    }
+    .section {
+      background-color: #fff;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title h2 {
+      margin: 0;
+      color: #0d6efd;
+    }
+    .section-title button {
+      background-color: #0d6efd;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .row input, .row select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      flex: 1;
+    }
+    .row button {
+      background-color: #198754;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="section-title">
+      <h2>إضافة مريض جديد</h2>
+      <button onclick="addRow()">➕</button>
+    </div>
+    <div id="rows-container"></div>
+  </div>
+  
+  <script>
+    const BIN_ID = "681b78198960c979a5950dbc";
+    const API_KEY = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6";
+    const rowsContainer = document.getElementById("rows-container");
+  
+    // ✅ تحميل البيانات عند فتح الصفحة
+    window.onload = async function () {
+      try {
+        const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+          headers: { 'X-Master-Key': API_KEY }
+        });
+        const result = await res.json();
+        const data = result.record || [];
+  
+        data.forEach(entry => renderRow(entry));
+      } catch (err) {
+        console.error("فشل تحميل البيانات:", err);
+      }
+    };
+  
+    // ✅ عرض الصف من البيانات
+    function renderRow(data) {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <select disabled>
+          <option ${data.القسم === "الرمد" ? "selected" : ""}>الرمد</option>
+          <option ${data.القسم === "العظام" ? "selected" : ""}>العظام</option>
+          <option ${data.القسم === "قلب مفتوح" ? "selected" : ""}>قلب مفتوح</option>
+          <option ${data.القسم === "قسطرة قلب" ? "selected" : ""}>قسطرة قلب</option>
+          <option ${data.القسم === "مخ و اعصاب" ? "selected" : ""}>مخ و اعصاب </option>
+          <option ${data.القسم === "انف و اذن" ? "selected" : ""}> انف و اذن</option>
+          <option ${data.القسم === " الاورام" ? "selected" : ""}> الاورام</option>
+        </select>
+        <input type="text" value="${data.المريض}" disabled />
+        <input type="text" value="${data.القرار}" disabled />
+        <input type="text" value="${data.الغرفة}" disabled />
+        <select disabled>
+          <option ${data.التصنيف === "عسكري" ? "selected" : ""}>عسكري</option>
+          <option ${data.التصنيف === "مدني" ? "selected" : ""}>مدني</option>
+        </select>
+        <button onclick="deleteRow(this, '${data.المريض}', '${data.الغرفة}')">🗑 حذف</button>
+      `;
+      rowsContainer.appendChild(row);
+    }
+  
+    // ✅ إضافة صف جديد للإدخال
+    function addRow() {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <select>
+          <option disabled selected>اختر القسم</option>
+          <option value="الرمد">الرمد</option>
+          <option value="العظام">العظام</option>
+          <option value="قلب مفتوح">قلب مفتوح</option>
+          <option value="قسطرة قلب">قسطرة قلب</option>
+          <option value="مخ و اعصاب">مخ و اعصاب</option>
+          <option value="انف و اذن">انف و اذن</option>
+          <option value="الاورام">الاورام</option>
+        </select>
+        <input type="text" placeholder="اسم المريض" />
+        <input type="text" placeholder="القرار" />
+        <input type="text" placeholder="رقم الغرفة" />
+        <select>
+          <option value="عسكري">عسكري</option>
+          <option value="مدني">مدني</option>
+        </select>
+        <button onclick="saveRow(this)">إضافة</button>
+      `;
+      rowsContainer.appendChild(row);
+    }
+  
+    // ✅ حفظ البيانات في JSONBin
+    async function saveRow(btn) {
+      const inputs = btn.parentElement.querySelectorAll("select, input");
+      const data = {
+        القسم: inputs[0].value,
+        المريض: inputs[1].value,
+        القرار: inputs[2].value,
+        الغرفة: inputs[3].value,
+        التصنيف: inputs[4].value
+      };
+  
+      if (!data.القسم || !data.المريض || !data.القرار || !data.الغرفة || !data.التصنيف) {
+        alert("من فضلك أدخل جميع البيانات");
+        return;
+      }
+  
+      try {
+        let res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+          headers: { 'X-Master-Key': API_KEY }
+        });
+        let result = await res.json();
+        let currentData = result.record || [];
+  
+        currentData.push(data);
+  
+        await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Master-Key": API_KEY
+          },
+          body: JSON.stringify(currentData)
+        });
+  
+        alert("✅ تمت الإضافة بنجاح!");
+        rowsContainer.innerHTML = "";
+        currentData.forEach(entry => renderRow(entry)); // إعادة عرض كل البيانات
+  
+      } catch (error) {
+        console.error("❌ خطأ أثناء الحفظ:", error);
+        alert("حدث خطأ. حاول لاحقًا.");
+      }
+    }
+  
+    // ✅ حذف البيانات
+    async function deleteRow(btn, name, room) {
+      try {
+        let res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+          headers: { 'X-Master-Key': API_KEY }
+        });
+        let result = await res.json();
+        let currentData = result.record || [];
+  
+        // حذف المريض بالمطابقة على الاسم والغرفة
+        let updatedData = currentData.filter(entry => !(entry.المريض === name && entry.الغرفة === room));
+  
+        await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Master-Key": API_KEY
+          },
+          body: JSON.stringify(updatedData)
+        });
+  
+        alert("🗑 تم حذف المريض");
+        btn.parentElement.remove();
+      } catch (error) {
+        console.error("❌ خطأ أثناء الحذف:", error);
+        alert("فشل في الحذف. حاول مرة أخرى.");
+      }
+    }
+  </script>
+  
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 <hr>
 
