@@ -164,8 +164,8 @@
   </div>
   
   <script>
-    const BIN_ID = "681b78198960c979a5950dbc";
-    const API_KEY = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6";
+    const BIN_ID = "683199418561e97a501adf1d";
+    const API_KEY = "$2a$10$jomao4.MhY8t41ajE24zx.pNYdOfmK849NqHjKT7.zkLzo8bfJGui";
     const rowsContainer = document.getElementById("rows-container");
   
     // ✅ تحميل البيانات عند فتح الصفحة
@@ -201,8 +201,8 @@
         <input type="text" value="${data.القرار}" disabled />
         <input type="text" value="${data.الغرفة}" disabled />
         <select disabled>
-          <option ${data.التصنيف === "عسكري" ? "selected" : ""}>عسكري</option>
           <option ${data.التصنيف === "مدني" ? "selected" : ""}>مدني</option>
+          <option ${data.التصنيف === "عسكري" ? "selected" : ""}>عسكري</option>
         </select>
         <button onclick="deleteRow(this, '${data.المريض}', '${data.الغرفة}')">🗑 حذف</button>
       `;
@@ -228,8 +228,8 @@
         <input type="text" placeholder="القرار" />
         <input type="text" placeholder="رقم الغرفة" />
         <select>
-          <option value="عسكري">عسكري</option>
           <option value="مدني">مدني</option>
+          <option value="عسكري">عسكري</option>
         </select>
         <button onclick="saveRow(this)">إضافة</button>
       `;
@@ -244,7 +244,7 @@
         المريض: inputs[1].value,
         القرار: inputs[2].value,
         الغرفة: inputs[3].value,
-        التصنيف: inputs[4].value
+        التصنيف: inputs[4].value,
       };
   
       if (!data.القسم || !data.المريض || !data.القرار || !data.الغرفة || !data.التصنيف) {

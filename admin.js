@@ -1,5 +1,5 @@
-const binId = "680697538960c979a58a1c64"; // ضع الـ Bin ID هنا
-const apiKey = "$2a$10$XyjpAsGIxR/qkb3dM51Bq.w5Aa1TKl7DfIcXHDUmQsNsO4uCjGJd6";
+const binId = "68319c648561e97a501adfd4"; // ضع الـ Bin ID هنا
+const apiKey = "$2a$10$jomao4.MhY8t41ajE24zx.pNYdOfmK849NqHjKT7.zkLzo8bfJGui";
 
 const formBody = document.getElementById("form-body");
 const messageDiv = document.getElementById("message");
@@ -100,7 +100,7 @@ document.getElementById("admin-form").addEventListener("submit", function (e) {
 
 
 
-const binId1 = "6807c5b78a456b79668ef602"; 
+const binId1 = "68319b848561e97a501adfa0"; 
 let notes = []; 
  
 async function fetchNotes() { 
